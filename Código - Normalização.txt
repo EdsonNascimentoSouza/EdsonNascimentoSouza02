@@ -1,0 +1,26 @@
+
+CREATE DATABASE IF NOT EXISTS `sistema_vendas`;
+USE `sistema_vendas`;
+
+-- ------------------------------------------------------
+-- Estrutura da tabela: pedidos (um registro por item do pedido)
+-- ------------------------------------------------------
+DROP TABLE IF EXISTS `pedidos`;
+
+CREATE TABLE `pedidos` (
+  `pedido_numero` INT NOT NULL,
+  `data_pedido` DATE DEFAULT NULL,
+  `valor_total_pedido` DECIMAL(10,2) DEFAULT NULL,
+  `forma_pagamento` VARCHAR(30) DEFAULT NULL,
+  `cliente_id` INT DEFAULT NULL,
+  `cliente_nome` VARCHAR(100) DEFAULT NULL,
+  `cliente_endereco` VARCHAR(255) DEFAULT NULL,
+  `cliente_telefone` VARCHAR(30) DEFAULT NULL,
+  `cliente_email` VARCHAR(100) DEFAULT NULL,
+  `produto_id` INT NOT NULL,
+  `produto_descricao` VARCHAR(150) DEFAULT NULL,
+  `produto_categoria` VARCHAR(50) DEFAULT NULL,
+  `preco_unitario` DECIMAL(10,2) DEFAULT NULL,
+  `quantidade` INT DEFAULT NULL,
+  `valor_item` DECIMAL(10,2) DEFAULT NULL,
+  PRIMARY KEY (`pedido_numero`,`produto_id`)
